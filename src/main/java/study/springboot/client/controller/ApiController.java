@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import study.springboot.client.dto.Request;
 import study.springboot.client.dto.UserResponse;
 import study.springboot.client.service.RestTemplateService;
 
@@ -15,8 +16,10 @@ public class ApiController {
     private final RestTemplateService restTemplateService;
 
     @GetMapping(value = "/hello")
-    public UserResponse hello() {
+    public Request<UserResponse> hello() {
         //return restTemplateService.hello();
-        return restTemplateService.post();
+        //return restTemplateService.post();
+        //return restTemplateService.exchange();
+        return restTemplateService.genericExchange();
     }
 }
